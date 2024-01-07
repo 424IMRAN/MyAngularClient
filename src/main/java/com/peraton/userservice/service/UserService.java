@@ -2,8 +2,11 @@ package com.peraton.userservice.service;
 
 import com.peraton.userservice.entity.Users;
 import com.peraton.userservice.repo.UserRepo;
+import com.peraton.userservice.vo.Department;
+import com.peraton.userservice.vo.RestTemplateVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +16,8 @@ public class UserService {
 
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    RestTemplate restTemplate;
 
     public Users saveUser(Users user) {
         return userRepo.save(user);
@@ -26,8 +31,8 @@ public class UserService {
         return userRepo.findAll();
     }
 
-    public Optional<Users> findUser(Long id) {
-        return userRepo.findById(id);
+    public Users findUser(Long id) {
+        return userRepo.findUserById(id);
     }
 
     public void deleteUser(Long id) {
@@ -63,5 +68,14 @@ public class UserService {
         }
         userRepo.save(oldUser);
         return oldUser;
+    }
+
+    public RestTemplateVo getUserWithDepartment(Long id) {
+        RestTemplateVo vo = new RestTemplateVo();
+        Users user = userRepo.findUserById(id);
+        Department department = restTemplate.getForObject("http://localhost:9090/departments/"+ user.getDepartmentId(), Department.class);
+        vo.setDepartment(department);
+        vo.setUsers(user);
+        return vo;
     }
 }

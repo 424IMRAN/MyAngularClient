@@ -2,6 +2,7 @@ package com.peraton.userservice.controller;
 
 import com.peraton.userservice.entity.Users;
 import com.peraton.userservice.service.UserService;
+import com.peraton.userservice.vo.RestTemplateVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,16 +20,16 @@ public class UserController {
     public Users saveUser(@RequestBody  Users user){
         return userService.saveUser(user);
     }
-    @PostMapping("/all")
+    @PostMapping("/list")
     public List<Users> saveUsers(@ RequestBody List<Users> users){
         return userService.saveUsers(users);
     }
-    @GetMapping("/all")
+    @GetMapping("/list")
     public List<Users> getAllUsers(){
         return userService.getAllUsers();
     }
     @GetMapping("/{id}")
-    public Optional<Users> findUser(@PathVariable("id") Long id){
+    public Users findUser(@PathVariable("id") Long id){
         return userService.findUser(id);
     }
     @PutMapping("/{id}")
@@ -40,9 +41,16 @@ public class UserController {
     public void deleteUser(@PathVariable("id") Long id){
          userService.deleteUser(id);
     }
-    @DeleteMapping("/all")
+    @DeleteMapping("/list")
     public void deleteAllUsers(){
         userService.deleteAllUsers();
     }
+
+    @GetMapping("/department/{id}")
+    public RestTemplateVo getUserWithDepartment(@PathVariable("id") Long id){
+        return userService.getUserWithDepartment(id);
+    }
+
+
 
 }

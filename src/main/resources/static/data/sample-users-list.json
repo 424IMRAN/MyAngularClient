@@ -15,5 +15,21 @@
     "sex":"Male",
     "designation":"Senior Software Engineer",
     "departmentId" : 1
+        },
+        {
+            "userName" : "Sami",
+            "email" : "mohd.sami1995@gmail.com",
+            "phoneNumber" : "9390456789",
+            "sex":"Male",
+            "designation":"Senior Analyst",
+            "departmentId" : 3
+        },
+        {
+            "userName" : "Zabih",
+            "email" : "zabihullah@gmail.com",
+            "phoneNumber" : "9949063598",
+            "sex":"Male",
+            "designation":"Junior Software Engineer",
+            "departmentId" : 5
         }
     ]
