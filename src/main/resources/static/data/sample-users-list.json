@@ -1,0 +1,19 @@
+
+    [
+        {
+    "userName" : "Osman",
+    "email" : "mohd.osman555@gmail.com",
+    "phoneNumber" : "9985655559",
+    "sex":"Male",
+    "designation":"Senior Business Analyst",
+    "departmentId" : 2
+        },
+        {
+    "userName" : "Imran",
+    "email" : "mohd.imran424@gmail.com",
+    "phoneNumber" : "9505263203",
+    "sex":"Male",
+    "designation":"Senior Software Engineer",
+    "departmentId" : 1
+        }
+    ]
