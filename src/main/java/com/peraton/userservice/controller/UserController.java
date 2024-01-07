@@ -3,12 +3,10 @@ package com.peraton.userservice.controller;
 import com.peraton.userservice.entity.Users;
 import com.peraton.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -25,4 +23,13 @@ public class UserController {
     public List<Users> saveUsers(@ RequestBody List<Users> users){
         return userService.saveUsers(users);
     }
+    @GetMapping("/all")
+    public List<Users> getAllUsers(){
+        return userService.getAllUsers();
+    }
+    @GetMapping("/{id}")
+    public Optional<Users> findUser(@PathVariable("id") Long id){
+        return userService.findUser(id);
+    }
+
 }
