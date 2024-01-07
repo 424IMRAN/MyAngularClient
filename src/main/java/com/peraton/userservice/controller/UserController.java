@@ -15,11 +15,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/saveUser")
+    @PostMapping("/")
     public Users saveUser(@RequestBody  Users user){
         return userService.saveUser(user);
     }
-    @PostMapping("/saveUsers")
+    @PostMapping("/all")
     public List<Users> saveUsers(@ RequestBody List<Users> users){
         return userService.saveUsers(users);
     }
@@ -30,6 +30,14 @@ public class UserController {
     @GetMapping("/{id}")
     public Optional<Users> findUser(@PathVariable("id") Long id){
         return userService.findUser(id);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id") Long id){
+         userService.deleteUser(id);
+    }
+    @DeleteMapping("/all")
+    public void deleteAllUsers(){
+        userService.deleteAllUsers();
     }
 
 }
