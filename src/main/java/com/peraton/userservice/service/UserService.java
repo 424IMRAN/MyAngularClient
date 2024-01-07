@@ -39,8 +39,29 @@ public class UserService {
     public void deleteAllUsers() {
         List<Users> users = userRepo.findAll();
         if(!users.isEmpty())  {userRepo.deleteAll();System.out.println("All Users were removed");}
-
         else System.out.println("There are no items to delete");
     }
 
+
+    public Users editUserById(Long id, Users newUser) {
+
+        Users oldUser = userRepo.findUserById(id);
+        if(oldUser.getId() != null)
+        {
+            if(newUser.getUserName() != null)
+                oldUser.setUserName(newUser.getUserName());
+            if(newUser.getEmail() != null)
+                oldUser.setEmail(newUser.getEmail());
+            if(newUser.getDepartmentId() != null)
+                oldUser.setDepartmentId(newUser.getDepartmentId());
+            if(newUser.getSex() != null)
+                oldUser.setSex(newUser.getSex());
+            if(newUser.getDesignation() != null)
+                oldUser.setDesignation(newUser.getDesignation());
+            if(newUser.getPhoneNumber() != null)
+                oldUser.setPhoneNumber(newUser.getPhoneNumber());
+        }
+        userRepo.save(oldUser);
+        return oldUser;
+    }
 }

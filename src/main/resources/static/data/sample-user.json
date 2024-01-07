@@ -1,5 +1,4 @@
 
-    
        {
     "userName" : "Osman",
     "email" : "mohd.osman555@gmail.com",
@@ -8,3 +7,24 @@
     "designation":"Senior Business Analyst",
     "departmentId" : 2
         }
+
+
+
+//Edit with User null
+
+    
+        {
+    "userName" : "Syed Zainul Abedeen",
+    "email" : "syed@apisec.ai",
+    "phoneNumber" : "9959712271",
+    "sex":null
+        }
+
+//Edit User
+    
+        {
+    "userName" : "Syed Zainul Abedeen",
+    "email" : "syed@apisec.ai",
+    "phoneNumber" : "9959712271"
+        }
+
